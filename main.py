@@ -4,12 +4,14 @@ import re, base64
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Attachment, FileContent, FileName, FileType, Disposition
 
+from_email = 'noreply@your-domain.com'
+to_email = 'YOUR_EMAIL'
+API = 'YOUR_API_KEY'
+
 app = Flask(__name__)
 otp = ''
 _to = ''
-sg = SendGridAPIClient('YOUR_API_KEY')
-from_email = 'noreply@your-domain.com'
-to_email = 'YOUR_EMAIL'
+sg = SendGridAPIClient(API)
 
 @app.route('/email', methods=['POST'])
 def email_receiver():
